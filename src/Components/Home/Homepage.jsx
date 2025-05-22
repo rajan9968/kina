@@ -35,6 +35,17 @@ export default function Homepage() {
       return newStates;
     });
   };
+
+  const products = [
+    { image: "frontend/images/model/model-1.jpg", title: "Leticia Petite Corset Dress", price: 288, originalPrice: 360 },
+    { image: "frontend/images/model/model-3.jpg", title: "Summer Top", price: 220, originalPrice: 300 },
+    { image: "frontend/images/model/model-4.jpg", title: "Classic Blazer", price: 450, originalPrice: 600 },
+    { image: "frontend/images/model/model-2.jpg", title: "Linen Pants", price: 390, originalPrice: 500 },
+    { image: "frontend/images/model/model-5.jpg", title: "Linen Pants", price: 390, originalPrice: 500 },
+    { image: "frontend/images/model/model-6.jpg", title: "Linen Pants", price: 390, originalPrice: 500 },
+    // Add more items as needed
+  ];
+
   return (
     <div>
       <div className="page-content bg-white">
@@ -75,23 +86,20 @@ export default function Homepage() {
                   modules={[Pagination, Autoplay]}
                   spaceBetween={20}
                   slidesPerView={6}
-
-
-                  autoplay={{          // Auto-slide settings
-                    delay: 5000,       // 3 seconds delay
-                    disableOnInteraction: false,  // Continue sliding after user interaction
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
                   }}
                   loop={true}
                   breakpoints={{
-                    320: { slidesPerView: 1 },   // Mobile: 1 slide
-                    576: { slidesPerView: 2 },   // Small screens: 2 slides
-                    768: { slidesPerView: 3 },   // Medium screens: 3 slides
-                    992: { slidesPerView: 3 }    // Large screens: 6 slides (col-lg-2)
+                    320: { slidesPerView: 1 },
+                    576: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    992: { slidesPerView: 3 },
                   }}
                 >
-                  {[...Array(12)].map((_, index) => (
+                  {products.map((item, index) => (
                     <SwiperSlide key={index}>
-                      {/* <div className="col-lg-2"> */}
                       <div
                         className="books-wrapper-3"
                         style={{
@@ -99,27 +107,26 @@ export default function Homepage() {
                           boxShadow: "0 1px 6px 1px rgba(54,74,99,.1)",
                           padding: 10,
                           borderRadius: 4,
-                          textAlign: "center"
+                          textAlign: "center",
                         }}
                       >
                         <img
-                          src="https://www.forevernew.co.in//pub/media/catalog/product/o/l/oldimlall_onbody_29569006_f.jpg?width=600&height=640&store=default&image-type=thumbnail"
-                          alt="Book"
+                          src={item.image}
+                          alt={item.title}
                           style={{ width: "100%", height: "auto" }}
                         />
                         <h6 style={{ fontSize: "14px", marginTop: "10px", textAlign: "left" }}>
-                          Leticia Petite Corset Dress
+                          {item.title}
                         </h6>
                         <div className="price text-start">
-                          <span className="price-num">₹288</span>
-                          <del>₹360</del>
+                          <span className="price-num">₹{item.price}</span>
+                          <del>₹{item.originalPrice}</del>
                         </div>
-
                       </div>
-                      {/* </div> */}
                     </SwiperSlide>
                   ))}
                 </Swiper>
+
               </div>
             </div>
           </div>
