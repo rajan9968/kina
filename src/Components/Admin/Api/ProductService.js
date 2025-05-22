@@ -53,3 +53,22 @@ export const fetchProductById = async (productId) => {
         throw error;
     }
 }
+
+// Update Product Service
+export const updateProduct = async (formData) => {
+    console.log("Update product service called");
+
+    try {
+        const response = await axios.put(API_URL + 'products/update-product', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': localStorage.getItem('token'),
+            },
+        });
+        console.log("Response in updateProduct service:", response.data);
+        return response.data;
+    } catch (error) {
+        console.log("Error in updateProduct service:", error);
+        throw error;
+    }
+}

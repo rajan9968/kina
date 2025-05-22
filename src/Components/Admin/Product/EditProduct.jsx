@@ -3,7 +3,7 @@ import { Layout, theme, Avatar, Button, Dropdown, message, Breadcrumb, Input, Up
 import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined, UploadOutlined } from '@ant-design/icons';
 import CustomHeader from '../Common/Header';
 import { getUser } from '../middleware/Authutils';
-import { product, fetchProductById } from '../Api/ProductService';
+import { updateProduct, fetchProductById } from '../Api/ProductService';
 import { toast, ToastContainer } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 const { Header, Sider, Content } = Layout;
@@ -35,6 +35,7 @@ export default function EditProduct() {
     const navigate = useNavigate();
     const [form] = Form.useForm();
     const [fileList, setFileList] = useState([]);
+    const [originalProductData, setOriginalProductData] = React.useState(null);
     const { productIds } = useParams();
     const user = getUser()
     const userName = user ? user.name : "Sign In";
@@ -86,6 +87,7 @@ export default function EditProduct() {
             const response = await fetchProductById(productIds);
             if (response.success === true) {
                 const productData = response.product;
+                setOriginalProductData(productData);
                 form.setFieldsValue({
                     name: productData.name,
                     description: productData.description,
@@ -99,17 +101,25 @@ export default function EditProduct() {
                     product_type: productData.product_type,
                     category: productData.category,
                     tags: productData.tags,
-                    image: productData.image,
-                });
-                setFileList([
-                    {
-                        uid: '-1',
-                        name: 'image.jpg',
-                        status: 'done',
-                        url: `${process.env.REACT_APP_API_URL}${productData.image.replace(/\\/g, '/')}`,
+                    image: productData.image ? [
+                        {
+                            uid: '-1',
+                            name: 'image.jpg', // or use actual filename if you have it
+                            status: 'done',
+                            url: `${process.env.REACT_APP_API_URL}${productData.image.replace(/\\/g, '/')}`,
+                        }
+                    ] : [],
 
-                    }
-                ]);
+                });
+                // setFileList([
+                //     {
+                //         uid: '-1',
+                //         name: 'image.jpg',
+                //         status: 'done',
+                //         url: `${process.env.REACT_APP_API_URL}${productData.image.replace(/\\/g, '/')}`,
+
+                //     }
+                // ]);
 
             } else {
                 toast.error("Failed to fetch product data");
@@ -126,33 +136,68 @@ export default function EditProduct() {
     const onFinish = async (values) => {
         const formData = new FormData();
 
+        formData.append('id', productIds);
         formData.append('name', values.name);
         formData.append('description', values.description);
         formData.append('mrp_price', values.mrp_price);
         formData.append('sale_price', values.sale_price);
-        formData.append('quantity', values.quantity);
-        formData.append('no_of_page', values.no_of_page);
-        formData.append('no_of_lesson', values.no_of_lesson);
-        formData.append('no_of_topic', values.no_of_topic);
-        formData.append('publisher', values.publisher);
-        formData.append('product_type', values.product_type);
+        // Compare and assign quantity
+        const quantity = (values.quantity !== undefined && originalProductData?.quantity !== values.quantity)
+            ? values.quantity
+            : originalProductData?.quantity;
+        formData.append('quantity', quantity);
+
+        // Compare and assign no_of_page
+        const no_of_page = (values.no_of_page !== undefined && originalProductData?.no_of_page !== values.no_of_page)
+            ? values.no_of_page
+            : originalProductData?.no_of_page;
+        formData.append('no_of_page', no_of_page);
+
+        // Compare and assign no_of_lesson
+        const no_of_lesson = (values.no_of_lesson !== undefined && originalProductData?.no_of_lesson !== values.no_of_lesson)
+            ? values.no_of_lesson
+            : originalProductData?.no_of_lesson;
+        formData.append('no_of_lesson', no_of_lesson);
+        // Compare and assign no_of_topic
+        const no_of_topic = (values.no_of_topic !== undefined && originalProductData?.no_of_topic !== values.no_of_topic)
+            ? values.no_of_topic
+            : originalProductData?.no_of_topic;
+        formData.append('no_of_topic', no_of_topic);
+        // Compare and assign publisher
+        const publisher = (values.publisher !== undefined && originalProductData?.publisher !== values.publisher)
+            ? values.publisher
+            : originalProductData?.publisher;
+        formData.append('publisher', publisher);
+        // Compare and assign product_type
+        const product_type = (values.product_type !== undefined && originalProductData?.product_type !== values.product_type)
+            ? values.product_type
+            : originalProductData?.product_type;
+        formData.append('product_type', product_type);
+        // // Compare and assign image
+        const uploadedFile = values.image?.[0]?.originFileObj;
+
+        if (uploadedFile) {
+            // New image uploaded
+            formData.append('image', uploadedFile);
+        } else {
+            // No new image, use the existing image path
+            formData.append('image', originalProductData?.image);
+        }
+
+
+        // console.log('Image:', image);
+        // Compare and assign category
         formData.append('category', values.category);
         formData.append('tags', values.tags);
 
-        const file = values.image && values.image.fileList[0]; // Assuming a single file upload
-        if (file) {
-            formData.append('image', file.originFileObj); // Append the file itself
-        }
+
+
         console.log('Sending FormData:', [...formData.entries()]);
         try {
-            const response = await product(formData);
+            const response = await updateProduct(formData);
 
             if (response.success === true) {
                 toast.success("Product added successfully");
-
-                // localStorage.setItem("token", response.data.token);
-                // localStorage.setItem("user", JSON.stringify(response.data.user));
-                // localStorage.setItem("isLoggedIn", "true");
 
                 // Optional: Redirect or reset form
                 navigate('/admin/products');
@@ -264,27 +309,19 @@ export default function EditProduct() {
                                 <Form.Item label="Description" name="description">
                                     <TextArea rows={4} placeholder='Enter Description' />
                                 </Form.Item>
-
-                                {/* <Form.Item label="Images" name="image">
-                                    <Dragger {...props} style={{ marginBottom: 24, height: 100, display: 'block' }}>
-                                        <p className="ant-upload-drag-icon">
-                                            <InboxOutlined />
-                                        </p>
-                                        <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                                        <p className="ant-upload-hint">
-                                            Support for single or bulk upload. Do not upload confidential or banned files.
-                                        </p>
-                                    </Dragger>
-                                </Form.Item> */}
-                                <Form.Item label="Image" name="image">
+                                <Form.Item
+                                    label="Image"
+                                    name="image"
+                                    valuePropName="fileList"
+                                    getValueFromEvent={(e) => (Array.isArray(e) ? e : e?.fileList)}
+                                >
                                     <Upload
                                         accept="image/*"
-                                        fileList={fileList}
                                         listType="picture"
-                                        showUploadList={{ showRemoveIcon: false }}
-                                        beforeUpload={() => false} // prevent auto upload
+                                        beforeUpload={() => false} // Prevent auto upload
+                                        maxCount={1}
                                     >
-                                        <UploadOutlined /> Click to Upload
+                                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
                                     </Upload>
                                 </Form.Item>
 

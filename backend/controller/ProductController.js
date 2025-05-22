@@ -82,11 +82,50 @@ const getProductById = async (req, res) => {
     }
 }
 
-// const up
+const updateProduct = async (req, res) => {
+    try {
+        const auth = req.headers['authorization'];
+        if (!auth) {
+            return res.status(403).json({ message: "Unauthorized, JWT token is invalid" });
+        }
+        const { id, name, description, mrp_price, sale_price, quantity, no_of_page, no_of_lesson, no_of_topic, publisher, product_type, category, tags } = req.body;
+        const image = req.file ? req.file.path : null;
+        const product = await ProductModel.findById(id);
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        product.name = name;
+        product.description = description;
+        product.mrp_price = mrp_price;
+        product.sale_price = sale_price;
+        product.quantity = quantity;
+        product.no_of_page = no_of_page;
+        product.no_of_lesson = no_of_lesson;
+        product.no_of_topic = no_of_topic;
+        product.publisher = publisher;
+        product.product_type = product_type;
+        product.category = category;
+        product.tags = tags;
+        if (image) {
+            product.image = image;
+        }
+        const updatedProduct = await product.save();
+        if (!updatedProduct) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        return res.status(200).json({ message: "Product updated successfully", success: true, product: updatedProduct });
+    }
+    catch (error) {
+        console.error("Register error:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+
+}
 
 
 module.exports = {
     addProduct,
     getAllproduct,
-    getProductById
+    getProductById,
+    updateProduct
 }
