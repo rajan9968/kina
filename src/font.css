@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+
+/* AdminDashboard.css */
+* {
+    font-family: 'Montserrat', sans-serif !important;
+    /* color: #9fa6bc !important; */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.pb-2 {
+    margin-bottom: 2em;
+}
+
+.heading,
+.sub-heading {
+    color: #9fa6bc !important;
+}
+
+/* If you want to target specific parts like Header, Content, etc. */
+.ant-layout {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ant-layout-header {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #141824 !important;
+    border-bottom: 1px solid #31374a !important;
+}
+
+.ant-layout-content {
+    background-color: #0f111a !important;
+}
+
+.ant-layout-sider-children {
+    background-color: #141824 !important;
+    border-right: 1px solid #31374a !important;
+}
+
+.ant-layout {
+    font-family: 'Montserrat', sans-serif;
+    background: #0f111a !important;
+}
+
+.ant-menu-item {
+    font-family: 'Montserrat', sans-serif;
+    /* background-color: #31374a !important; */
+    font-weight: 600;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+    background-color: #31374a !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.ant-menu {
+    background-color: #141824 !important;
+    border-top: 1px solid #31374a !important;
+}
+
+.card-ecom-fro {
+    border-bottom: 1px solid #31374a !important;
+    margin-bottom: 2em;
+    /* background-color: #141824 !important; */
+}
+
+.card-ecom-fro .ant-card {
+    background: #141824 !important;
+    border-radius: 5px !important;
+    font-family: 'Montserrat', sans-serif;
+    color: #9fa6bc !important;
+    border: 1px solid #31374a !important;
+}
+
+.card-ecom-fro .ant-card-head {
+    border-bottom: 1px solid #31374a !important;
+
+}
+
+.card-ecom-fro .ant-card-head-title {
+    color: #9fa6bc !important;
+
+}
+
+.card-ecom-fro .ant-card-body .ant-statistic .ant-statistic-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #9fa6bc !important;
+    font-weight: 600;
+}
+
+.ecom-prodict-table {
+    background-color: #0f111a !important;
+}
+
+.ecom-prodict-table .ant-table-cell {
+    background-color: #0f111a !important;
+    border-bottom: 1px solid #31374a !important;
+    border-radius: 0% !important;
+    color: #9fa6bc !important;
+    font-weight: 600;
+}
+
+.ecom-login .ant-input-affix-wrapper {
+    background: #141824 !important;
+    border: 1px solid #373e53;
+    padding: 10px;
+    color: #fff;
+}
+
+.ecom-login .ant-input-affix-wrapper:hover,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper:focus-within {
+    background: #141824 !important;
+    border: 1px solid #373e53;
+    padding: 10px;
+    color: #fff;
+}
+
+.ecom-login .ant-input-affix-wrapper input::placeholder {
+    color: #aaa;
+    /* Customize this color as needed */
+}
+
+.ant-breadcrumb ol li,
+a {
+    color: #9fa6bc !important;
+}
+
+.out-btn .ant-btn span {
+    color: #fff !important;
+}
+
+.ant-upload-wrapper {
+    height: 40%;
+    display: block;
+}
+
+.ant-upload-wrapper p {
+    color: #9fa6bc !important;
+}
+
+.tabs {
+    color: #9fa6bc !important;
+    margin-top: 1em;
+}
+
+.ant-tabs-tab-btn {
+    color: #9fa6bc !important;
+}
+
+.product-form input,
+.product-form textarea,
+.product-form .ant-upload-wrapper,
+.product-form .ant-select {
+    margin: 16px 0;
+    background: #141824 !important;
+    border: 1px solid #373e53;
+    padding: 10px;
+    color: #fff;
+}
+
+.product-form .ant-col label {
+    color: #9fa6bc !important;
+}
+
+.product-form .ant-select {
+    width: 100%;
+    height: 6%;
+    border-radius: 6px;
+}
+
+.product-form .ant-select-selector {
+    background: #141824 !important;
+    border: none !important;
+}
+
+.product-form input::placeholder,
+.product-form textarea::placeholder {
+    color: #aaa;
+}
+
+.product-form .ant-select-selection-placeholder {
+    color: #aaa !important;
+}
+
+.product-form .ant-upload-text {
+    color: #aaa !important;
+}
+
+.ant-select-selection-item-remove svg {
+    color: #aaa !important;
+}
+
+.ant-select-selection-item {
+    color: #aaa !important;
+}
+
+.product-form .ant-tabs-tab {
+    margin: 0 !important;
+}
+
+.product-form .ant-tabs-tab {
+    padding-left: 0% !important;
+}
