@@ -259,7 +259,7 @@ export default function Header() {
                 {/* EXTRA NAV */}
                 <div className="extra-nav">
                   <div className="extra-cell">
-                    <Link to="/contact-us" className="btn btn-primary btnhover">
+                    <Link to="/contact-us" className="btn btn-primary btnhover text-black">
                       Get In Touch
                     </Link>
 

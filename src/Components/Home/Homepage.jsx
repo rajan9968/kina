@@ -187,7 +187,7 @@ export default function Homepage() {
                         </div> */}
                         <a
                           href="#"
-                          className="btn btn-primary m-t15 btnhover btnhover2"
+                          className="btn btn-primary m-t15 btnhover btnhover2 text-black"
                           style={{ padding: "6px", marginTop: "10px" }}
                         >
                           <i className="flaticon-shopping-cart-1 m-r10" />
@@ -255,7 +255,7 @@ export default function Homepage() {
 
                         <a
                           href="#"
-                          className="btn btn-primary m-t15 btnhover btnhover2"
+                          className="btn btn-primary m-t15 btnhover btnhover2 text-black"
                           style={{ padding: "6px", marginTop: "10px" }}
                         >
                           <i className="flaticon-shopping-cart-1 m-r10" />

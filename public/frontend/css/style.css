@@ -42,7 +42,7 @@
     --grey: #f7f7f7;
     --border-radius-base: 6px;
     --font-family-title: Poppins, sans-serif;
-    --title: #1a1668;
+    --title: #000;
     --headings-font-weight: 600;
     --headings-font-weight2: 400;
     --headings-font-weight3: 300;
@@ -155,7 +155,7 @@ h6,
     margin-bottom: 0.5rem;
     font-weight: 600;
     line-height: 1.2;
-    color: #1a1668;
+    color: #000;
 }
 
 h1,
@@ -4676,8 +4676,8 @@ fieldset:disabled .woocommerce #place_order,
 .woocommerce input.button,
 .woocommerce #place_order {
     color: #000;
-    background-color: #eaa451;
-    border-color: #eaa451;
+    background-color: #e1b6a5;
+    border-color: #e1b6a5;
 }
 
 .btn-primary:hover,
@@ -20948,8 +20948,8 @@ button:focus {
 .woocommerce #place_order {
     /* border-color: var(--primary);
     background-color: var(--primary); */
-    border-color: #1a1668;
-    background-color: #1a1668;
+    border-color: #e1b6a5;
+    background-color: #e1b6a5;
 }
 
 .btn-primary.disabled,
@@ -28112,7 +28112,7 @@ ul a.rsswidget:hover {
 
 .topheader {
     color: #000;
-    background: #ffa2a2;
+    background: #dfa0a0b0;
     text-align: end;
     line-height: 30px;
 }
@@ -36426,6 +36426,10 @@ body.woo-variation-swatches .variable-items-wrapper .variable-item:not(.radio-va
     position: relative;
 }
 
+ul.nav.navbar-nav li a {
+    color: #000 !important;
+}
+
 .header-nav .nav>li.has-mega-menu {
     position: inherit;
 }
@@ -39128,8 +39132,7 @@ footer.footer-dark .footer-category .toggle-items ul li a:hover {
 .marq {
     height: 34px;
     padding-bottom: 8px;
-    margin-bottom: -9px;
-    background: #ffa2a2;
+    background: #dfa0a0b0;
 }
 
 .geek1 {
@@ -39243,6 +39246,7 @@ footer.footer-dark .footer-category .toggle-items ul li a:hover {
 
 .kanit-heading {
     font-family: "Kanit", sans-serif !important;
+    color: #000 !important;
 }
 
 /*# sourceMappingURL=style.map */

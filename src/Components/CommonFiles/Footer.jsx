@@ -1,4 +1,7 @@
 import React from 'react'
+import { InstagramOutlined, FacebookOutlined, GoogleOutlined, YoutubeOutlined } from "@ant-design/icons";
+import ScrollToTop from "react-scroll-to-top";
+
 
 export default function Footer() {
   return (
@@ -6,6 +9,7 @@ export default function Footer() {
       <>
         {/* Footer */}
         <footer className="site-footer footer-dark">
+          <ScrollToTop smooth />
           {/* Footer Top */}
           <div className="footer-top">
             <div className="container">
@@ -34,7 +38,7 @@ export default function Footer() {
                             href="https://www.facebook.com/AmbitionPublicationsBooks"
                             target="_blank"
                           >
-                            <i className="fa-brands fa-facebook-f f" />
+                            <FacebookOutlined />
                           </a>
                         </li>
                         <li>
@@ -42,7 +46,7 @@ export default function Footer() {
                             href="https://youtube.com/@ambitionlawinstitute2001?si=9SMmKbKEatt-gKgO"
                             target="_blank"
                           >
-                            <i className="fa-brands fa-youtube" />
+                            <YoutubeOutlined />
                           </a>
                         </li>
                         <li>
@@ -50,7 +54,7 @@ export default function Footer() {
                             href="https://www.linkedin.com/company/ambition-publications/"
                             target="_blank"
                           >
-                            <i className="fa-brands fa-linkedin l" />
+                            <GoogleOutlined />
                           </a>
                         </li>
                         <li>
@@ -58,7 +62,7 @@ export default function Footer() {
                             href="https://www.instagram.com/ambitionpublications/?hl=en"
                             target="_blank"
                           >
-                            <i className="fa-brands fa-instagram" />
+                            <InstagramOutlined />
                           </a>
                         </li>
                       </ul>
@@ -232,14 +236,14 @@ export default function Footer() {
             {/*            alt="">*/}
             {/*    </a>*/}
             {/*</li>*/}
-            <a href="tel:8506050204">
+            {/* <a href="tel:8506050204">
               <li>
                 <img
                   src="https://ambitionpublications.com/frontend/icons/flaticon/phone-call.png"
                   alt=""
                 />
               </li>
-            </a>
+            </a> */}
           </ul>
         </div>
       </>
