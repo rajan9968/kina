@@ -268,11 +268,8 @@ export default function Header() {
                   id="navbarNavDropdown"
                 >
                   <div className="logo-header logo-dark">
-                    <a href="index.html">
-                      <img
-                        src="https://ambitionpublications.com/frontend/images/logo.jpg"
-                        alt=""
-                      />
+                    <a href="#">
+                      <h1 className="kanit-heading">Kina</h1>
                     </a>
                   </div>
                   <form className="search-input">
