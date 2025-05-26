@@ -748,6 +748,10 @@ progress {
     .container-lg {
         max-width: 960px;
     }
+
+    .mobile-banner {
+        display: block !important;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -39247,6 +39251,12 @@ footer.footer-dark .footer-category .toggle-items ul li a:hover {
 .kanit-heading {
     font-family: "Kanit", sans-serif !important;
     color: #000 !important;
+}
+
+@media (min-width: 2560px) {
+    .desktop-banner {
+        display: block;
+    }
 }
 
 /*# sourceMappingURL=style.map */

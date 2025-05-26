@@ -50,7 +50,7 @@ export default function Homepage() {
     <div>
       <div className="page-content bg-white">
         {/*Swiper Banner Start */}
-        <div className="main-slider style-1">
+        <div className="main-slider style-1 desktop-banner">
           <Carousel autoplay>
             <div>
               <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
@@ -66,6 +66,25 @@ export default function Homepage() {
             </div>
           </Carousel>
         </div>
+        {/* mobile banner  */}
+        <div className="main-slider style-1 mobile-banner d-none">
+          <Carousel autoplay>
+            <div>
+              <img src="frontend /images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
+            </div>
+            <div>
+              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
+            </div>
+            <div>
+              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
+            </div>
+            <div>
+              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
+            </div>
+          </Carousel>
+        </div>
+
+
         {/*Swiper Banner End*/}
 
         {/* icon-box1 End*/}
