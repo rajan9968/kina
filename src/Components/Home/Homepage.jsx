@@ -70,16 +70,16 @@ export default function Homepage() {
         <div className="main-slider style-1 mobile-banner">
           <Carousel autoplay>
             <div>
-              <img src="frontend /images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
+              <img src="frontend/images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
             </div>
             <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
+              <img src="frontend/images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
             </div>
             <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
+              <img src="frontend/images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
             </div>
             <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
+              <img src="frontend/images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
             </div>
           </Carousel>
         </div>
