@@ -752,6 +752,10 @@ progress {
     .mobile-banner {
         display: block !important;
     }
+
+    .desktop-banner {
+        display: none !important;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -39256,6 +39260,10 @@ footer.footer-dark .footer-category .toggle-items ul li a:hover {
 @media (min-width: 2560px) {
     .desktop-banner {
         display: block;
+    }
+
+    .mobile-banner {
+        display: none !important;
     }
 }
 

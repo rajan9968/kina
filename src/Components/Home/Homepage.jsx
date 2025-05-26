@@ -67,7 +67,7 @@ export default function Homepage() {
           </Carousel>
         </div>
         {/* mobile banner  */}
-        <div className="main-slider style-1 mobile-banner d-none">
+        <div className="main-slider style-1 mobile-banner">
           <Carousel autoplay>
             <div>
               <img src="frontend /images/image-placeholder-430X450.jpg" className='w-100' alt="" srcset="" />
