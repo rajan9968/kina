@@ -235,11 +235,8 @@ export default function Header() {
               <div className="container clearfix">
                 {/* Website Logo */}
                 <div className="logo-header logo-dark">
-                  <a href="https://ambitionpublications.com">
-                    <img
-                      src="https://ambitionpublications.com/frontend/images/AMBITION PUBLICATION logo.png"
-                      alt="logo"
-                    />
+                  <a href="#">
+                    <h1 className="kanit-heading">Kina</h1>
                   </a>
                 </div>
                 {/* Nav Toggle Button */}
