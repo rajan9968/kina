@@ -51,7 +51,8 @@ export default function Login() {
                 className='ecom-login'
             >
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    <img src="https://ambitionpublications.com/frontend/images/AMBITION%20PUBLICATION%20logo.png" style={{ maxWidth: '50%' }} alt="Logo" />
+                    {/* <img src="https://ambitionpublications.com/frontend/images/AMBITION%20PUBLICATION%20logo.png" style={{ maxWidth: '50%' }} alt="Logo" /> */}
+                    <h1 className='text-white'>Kina</h1>
                 </div>
                 <Form.Item
                     name="email"
@@ -69,7 +70,7 @@ export default function Login() {
                     <Row justify="space-between" align="middle">
                         <Col>
                             <Form.Item name="remember" valuePropName="checked" noStyle>
-                                <Checkbox>Remember me</Checkbox>
+                                <Checkbox className='text-white'>Remember me</Checkbox>
                             </Form.Item>
                         </Col>
                         <Col>
