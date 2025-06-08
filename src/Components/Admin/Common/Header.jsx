@@ -38,12 +38,16 @@ export default function CustomHeader({ collapsed, setCollapsed }) {
                         {
                             key: '2',
                             icon: <VideoCameraOutlined />,
-                            label: <Link to="/admin/products">Products</Link>,
+                            label: <Link to="/admin/banner">Banner</Link>,
                         },
                         {
                             key: '3',
                             icon: <UploadOutlined />,
-                            label: 'Slider',
+                            label: <Link to="/admin/products">Products</Link>,
+                        }, {
+                            key: '4',
+                            icon: <UploadOutlined />,
+                            label: <Link to="/admin/categories">Category</Link>,
                         },
                     ]}
                 />

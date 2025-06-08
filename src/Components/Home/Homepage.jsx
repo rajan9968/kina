@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Carousel } from 'antd';
+import axios from "axios";
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,8 +10,36 @@ import "swiper/css/autoplay";  // Import autoplay styles
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 
+
 export default function Homepage() {
   const videoRefs = useRef([]);
+  const [banners, setBanners] = useState([]);
+
+
+  // Conect Backend
+
+  useEffect(() => {
+    // Fetch banners from backend
+    const fetchBanners = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/banner/get-all-banner", {
+          headers: {
+            'Authorization': localStorage.getItem('token'),
+          },
+        });
+
+        setBanners(response.data.banner || []); // Ensure we set an empty array if no banners are returned
+      } catch (error) {
+        console.error("Error fetching banners:", error);
+      }
+    };
+
+    fetchBanners();
+  }, []);
+
+
+
+
   const [playingStates, setPlayingStates] = useState(
     Array(12).fill(false) // initialize 12 videos as not playing
   );
@@ -52,19 +81,28 @@ export default function Homepage() {
         {/*Swiper Banner Start */}
         <div className="main-slider style-1">
           <Carousel autoplay>
-            <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
-            </div>
-            <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
-            </div>
-            <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
-            </div>
-            <div>
-              <img src="https://www.forevernew.co.in/pub/media/wysiwyg/home/4april-oct-LOG-IN-(Desktop).jpg" className='w-100' alt="" srcset="" />
-            </div>
+            {Array.isArray(banners) && banners.map((banner, index) => (
+              <div key={index}>
+                {(() => {
+                  // Fix backslashes in image path
+                  const fixedPath = banner.image.replace(/\\/g, '/');
+                  const imageUrl = `http://localhost:8000/${fixedPath}`;
+
+                  return (
+                    <img
+                      src={imageUrl}
+                      alt={`Banner ${index + 1}`}
+
+                      style={{ objectFit: 'cover' }}
+                      className="w-100"
+                    />
+                  );
+                })()}
+              </div>
+
+            ))}
           </Carousel>
+
         </div>
         {/*Swiper Banner End*/}
 

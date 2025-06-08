@@ -4,6 +4,7 @@ const connectDB = require('./connection/db');
 const userRoutes = require('./routes/userRoutes');
 const AdminRoutes = require('./routes/AdminRoutes');
 const ProductRoutes = require('./routes/ProductRoutes');
+const BannerRoutes = require('./routes/BannerRoutes');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -18,6 +19,8 @@ app.use(cors());
 app.use('/user', userRoutes);
 app.use('/admin', AdminRoutes);
 app.use('/products', ProductRoutes)
+app.use('/banner', BannerRoutes);
+
 app.use('/uploads', express.static('uploads'));
 
 app.listen(PORT, () => {

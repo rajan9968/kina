@@ -122,10 +122,31 @@ const updateProduct = async (req, res) => {
 
 }
 
+const deleteProduct = async (req, res) => {
+    try {
+        const auth = req.headers['authorization'];
+        if (!auth) {
+            return res.status(403).json({ message: "Unauthorized, JWT token is invalid" });
+        }
+        const id = req.body.id;
+        const product = await ProductModel.findByIdAndDelete(id);
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+
+        return res.status(200).json({ message: "Product Deleted successfully", success: true, product: product });
+
+    } catch (error) {
+        console.error("Register error:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
 
 module.exports = {
     addProduct,
     getAllproduct,
     getProductById,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }

@@ -51,7 +51,7 @@ export default function Login() {
                 className='ecom-login'
             >
                 <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    <h1 className="kanit-heading text-white">Kina</h1>
+                    <h1 className="text-white text-uppercase">Kina</h1>
                 </div>
                 <Form.Item
                     name="email"

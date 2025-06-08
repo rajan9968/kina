@@ -72,3 +72,20 @@ export const updateProduct = async (formData) => {
         throw error;
     }
 }
+
+// Delete Product Service
+export const deleteProduct = async (productId) => {
+    try {
+        const response = await axios.delete(API_URL + 'products/delete-product', {
+            data: { id: productId },
+            headers: {
+                'Authorization': localStorage.getItem('token'),
+            },
+        });
+        console.log("Response in deleteProduct service:", response.data);
+        return response.data;
+    } catch (error) {
+        console.log("Error in deleteProduct service:", error);
+        throw error;
+    }
+}
